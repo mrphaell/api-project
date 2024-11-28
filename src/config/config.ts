@@ -11,13 +11,13 @@ export class Database {
         if (!dbName || !dbUsername) throw new Error('Database credentials not provided');
 
         const sequelize = new Sequelize(dbName, dbUsername, dbPassword, {
+            host: process.env.DB_HOST,
             dialect: 'postgres',
             logging: false,
             dialectOptions: {
                 ssl: {
-                    require: true,
-                    rejectUnauthorized: false,
-                },
+                    rejectUnauthorized: false
+                }
             }
         });
 
