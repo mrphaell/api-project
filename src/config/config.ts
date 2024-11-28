@@ -12,7 +12,13 @@ export class Database {
 
         const sequelize = new Sequelize(dbName, dbUsername, dbPassword, {
             dialect: 'postgres',
-            logging: false
+            logging: false,
+            dialectOptions: {
+                ssl: {
+                    require: true,
+                    rejectUnauthorized: false,
+                },
+            }
         });
 
         this.connection = sequelize;

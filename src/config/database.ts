@@ -10,5 +10,11 @@ export const sequelize = new Sequelize({
     define: {
         timestamps: true
     },
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false,
+        },
+    },
     logging: false
 });
