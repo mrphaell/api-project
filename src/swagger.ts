@@ -26,9 +26,13 @@ const doc = {
     },
     servers: [
         {
+            url: 'https://rsa-base-api-f43011b13614.herokuapp.com',
+            description: 'Heroku server'
+        },
+        {
             url: 'http://localhost:3000',
             description: 'Local server'
-        },
+        }
     ]
 };
 
