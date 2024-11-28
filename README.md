@@ -9,6 +9,8 @@ Após clonar o repositório, utilize o comando
 npm install
 ```
 
+Criar arquivo .env com as váriáveis de ambiente descritos no arquivo .env.example
+
 ## Scripts úteis configurados
 
 Iniciar o servidor DEV
