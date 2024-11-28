@@ -32,3 +32,14 @@ Ao executar o servidor, para acessar a documentação Swagger, acesse: (assumind
 ```
 http://localhost:4000/api-docs
 ```
+
+## CI/CD
+A aplicação está hospedada no Heroku™.
+A aplicação pode ser acessa pelo link abaixo:
+```
+https://rsa-base-api-f43011b13614.herokuapp.com
+```
+Sendo assim, a documentação Swagger está hospedada em:
+```
+https://rsa-base-api-f43011b13614.herokuapp.com/api-docs
+```
