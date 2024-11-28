@@ -34,7 +34,7 @@ http://localhost:4000/api-docs
 ```
 
 ## CI/CD
-A aplicação está hospedada no Heroku™.
+A aplicação está hospedada no Heroku™, onde alterações na branch são automaticamente testadas, e, passando nos testes, ocorre o deploy.
 A aplicação pode ser acessa pelo link abaixo:
 ```
 https://rsa-base-api-f43011b13614.herokuapp.com
