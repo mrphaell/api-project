@@ -22,13 +22,13 @@ describe('User Controller', () => {
     describe('getUsers', () => {
         it('should return a list of users with status 200', async () => {
             req.query = { filter: '' };
-            (getAllUsers as jest.Mock).mockResolvedValue([{ id: 1, nome: 'John Doe', email: 'john@example.com' }]);
+            (getAllUsers as jest.Mock).mockResolvedValue([{ id: '1', nome: 'John Doe', email: 'john@example.com' }]);
 
             await getUsers(req as Request, res as Response);
 
             expect(getAllUsers).toHaveBeenCalledWith('');
             expect(res.status).toHaveBeenCalledWith(200);
-            expect(res.json).toHaveBeenCalledWith([{ id: 1, nome: 'John Doe', email: 'john@example.com' }]);
+            expect(res.json).toHaveBeenCalledWith([{ id: '1', nome: 'John Doe', email: 'john@example.com' }]);
         });
 
         it('should return an error with status 400', async () => {
@@ -45,13 +45,13 @@ describe('User Controller', () => {
     describe('getUser', () => {
         it('should return a user with status 200', async () => {
             req.params = { id: '1' };
-            (getSingleUser as jest.Mock).mockResolvedValue({ id: 1, nome: 'John Doe', email: 'john@example.com' });
+            (getSingleUser as jest.Mock).mockResolvedValue({ id: '1', nome: 'John Doe', email: 'john@example.com' });
 
             await getUser(req as Request, res as Response);
 
             expect(getSingleUser).toHaveBeenCalledWith('1');
             expect(res.status).toHaveBeenCalledWith(200);
-            expect(res.json).toHaveBeenCalledWith({ id: 1, nome: 'John Doe', email: 'john@example.com' });
+            expect(res.json).toHaveBeenCalledWith({ id: '1', nome: 'John Doe', email: 'john@example.com' });
         });
 
         it('should return an error with status 400', async () => {
@@ -68,13 +68,13 @@ describe('User Controller', () => {
     describe('createUser', () => {
         it('should create a user and return 201 status', async () => {
             req.body = { nome: 'John Doe', email: 'john@example.com', senha: 'password', funcao: 'admin' };
-            (createSingleUser as jest.Mock).mockResolvedValue({ id: 1, nome: 'John Doe', email: 'john@example.com', senha: 'hashedPassword', funcao: 'admin' });
+            (createSingleUser as jest.Mock).mockResolvedValue({ id: '1', nome: 'John Doe', email: 'john@example.com', senha: 'hashedPassword', funcao: 'admin' });
 
             await createUser(req as Request, res as Response);
 
             expect(createSingleUser).toHaveBeenCalledWith('John Doe', 'john@example.com', 'password', 'admin');
             expect(res.status).toHaveBeenCalledWith(201);
-            expect(res.json).toHaveBeenCalledWith({ id: 1, nome: 'John Doe', email: 'john@example.com', senha: 'hashedPassword', funcao: 'admin' });
+            expect(res.json).toHaveBeenCalledWith({ id: '1', nome: 'John Doe', email: 'john@example.com', senha: 'hashedPassword', funcao: 'admin' });
         });
 
         it('should return 400 status on error', async () => {
@@ -92,13 +92,13 @@ describe('User Controller', () => {
         it('should update a user and return 200 status', async () => {
             req.params = { id: '1' };
             req.body = { nome: 'John Doe Updated', email: 'john.updated@example.com', funcao: 'user' };
-            (updateSingleUser as jest.Mock).mockResolvedValue({ id: 1, nome: 'John Doe Updated', email: 'john.updated@example.com', funcao: 'user' });
+            (updateSingleUser as jest.Mock).mockResolvedValue({ id: '1', nome: 'John Doe Updated', email: 'john.updated@example.com', funcao: 'user' });
 
             await updateUser(req as Request, res as Response);
 
             expect(updateSingleUser).toHaveBeenCalledWith('1', { nome: 'John Doe Updated', email: 'john.updated@example.com', funcao: 'user' });
             expect(res.status).toHaveBeenCalledWith(200);
-            expect(res.json).toHaveBeenCalledWith({ id: 1, nome: 'John Doe Updated', email: 'john.updated@example.com', funcao: 'user' });
+            expect(res.json).toHaveBeenCalledWith({ id: '1', nome: 'John Doe Updated', email: 'john.updated@example.com', funcao: 'user' });
         });
 
         it('should return 400 status on error', async () => {
